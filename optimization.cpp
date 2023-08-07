@@ -16,6 +16,10 @@ Optimization::Optimization(){
     for(int i = 0; i < num_states; i++){
         I(i,i) = 1;
     }
+
+    // Initialize the previous states and inputs - check using random values
+    prev_states = MatrixXf::Random(num_states,nodes);
+    prev_states = MatrixXf::Random(num_inputs,nodes);
 };
 void Optimization::SetEqualityConstraints(){
     // Index replaced positions
@@ -32,15 +36,18 @@ void Optimization::SetEqualityConstraints(){
         row_stop = row_start + rows;
         col_stop = col_start + cols;
 
-        // Find the linear dynamics for a specific node
-        SetLinearDynamics(prev_states(i), prev_inputs(i));
+        // Find the linear dynamics for a specific node - need to pass by value
+        SetLinearDynamics(prev_states.col(i), prev_inputs.col(i));
         geq.block(row_start,col_start,row_stop,col_stop) = -A*optim_dt - I, I, -B*optim_dt;
-        ceq.block(row_start,row_stop) = 2*
+        // ceq.block(row_start,row_stop) = 2*
 
         // Reset the start points
         row_start = row_stop + 1;
         col_start = col_stop + 1;
     }
+
+    prev_states = MatrixXf::Random(num_states,nodes);
+    prev_states = MatrixXf::Random(num_inputs,nodes);
 };
 
 void Optimization::SetInequalityConstraints(){
@@ -62,8 +69,8 @@ void Optimization::SetObjectiveFunction(){
         col_stop = col_start + cols;
 
         // Find the linear dynamics for a specific node
-        H.block(row_start,col_start,row_stop,col_stop) = 2*Q, 0 , 0 , 2*R;
-        c.block(row_start,row_stop) = 2*Q*q_des;
+        // H.block(row_start,col_start,row_stop,col_stop) = 2*Q, 0 , 0 , 2*R;
+        // c.block(row_start,row_stop) = 2*Q*q_des;
 
         // Reset the start points
         row_start = row_stop + 1;

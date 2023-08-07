@@ -20,7 +20,8 @@ private:
     // Constant Variables
     int num_states, num_inputs, nodes;
     float optim_dt;
-    MatrixXi I, Z; // Identity Matrix and Zero matrix
+    MatrixXi prev_states, prev_inputs;       // Most recent optimization results
+    MatrixXi I, Z;                          // Identity Matrix and Zero matrix
 
 public:
     // Constructor
