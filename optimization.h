@@ -9,26 +9,41 @@ private:
     MatrixXf A, B;
     VectorXf f;   
 
-    // Constraint Structures geq*q = ceq, qiq <= ciq 
+    // Constraint Matricies geq*q = ceq, qiq <= ciq 
     MatrixXf geq, giq;
     VectorXf ciq, ceq;
 
-    // Objective Function parameters
+    // Objective Function Matricies
     MatrixXf H;
     VectorXf c;
 
+    // Objective Function Weights
+    MatrixXf QR;
+
+    // Desired States
+    VectorXf q_des;
+
+    // Optimization results
+    MatrixXf q_body, u_body;        
+
     // Constant Variables
-    int num_states, num_inputs, nodes;
-    float optim_dt;
-    MatrixXi prev_states, prev_inputs;       // Most recent optimization results
-    MatrixXi I, Z;                          // Identity Matrix and Zero matrix
+    int nodes = 5;        
+    int num_legs = 2;
+    int num_body_states = 6;                                // number of pos & vel states
+    int num_body_inputs = 4;
+    float optim_dt = 0.1;                                     // time step
+    MatrixXi I, Z;                                      // Identity Matrix and Zero matrix
+
 
 public:
     // Constructor
     Optimization();
-    void SetLinearDynamics(VectorXf,VectorXf);
-    void SetEqualityConstraints();
-    void SetInequalityConstraints();
-    void SetObjectiveFunction();
+
+    // Functions
+    void SetLinearDynamics(VectorXf, MatrixXf);
+    // void SetEqualityConstraints();
+    // void SetInequalityConstraints();
+    // void SetObjectiveFunction();
 };
 
+ 

@@ -2,6 +2,7 @@
 #include "components.h"
 using namespace std;
 
+// This will be a structure (one struct for each leg)
 
 Body::Body(){
     qB_ic.setZero();
