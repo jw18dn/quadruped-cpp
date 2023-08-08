@@ -40,7 +40,7 @@ public:
     Optimization();
 
     // Functions
-    void SetLinearDynamics(VectorXf, MatrixXf);
+    void SetLinearDynamics(VectorXf, VectorXf);
     // void SetEqualityConstraints();
     // void SetInequalityConstraints();
     // void SetObjectiveFunction();

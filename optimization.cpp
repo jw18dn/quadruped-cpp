@@ -39,7 +39,7 @@ Optimization::Optimization(){
     q_des = VectorXf::Random(num_body_states);
 };
 
-void Optimization::SetLinearDynamics(VectorXf q_n_body, MatrixXf u_n_body){      
+void Optimization::SetLinearDynamics(VectorXf q_n_body, VectorXf u_n_body){      
     // Setup for planar quadruped (or technically a biped) 
     // func inputs are vectors of states for a specific node
     // Physical Properties
@@ -51,7 +51,9 @@ void Optimization::SetLinearDynamics(VectorXf q_n_body, MatrixXf u_n_body){
     int start_pos = num_body_pos + 1;
 
     // Euler Integration dx = Ax + Bu + C
+    // States = [x, z, theta, dx, dz, dtheta]^T
     // A Matrix----------------------------------------------------------------------------------
+
     for(int i = start_pos; i < num_body_states; i++){
         A(i,i) = 1;
     }
