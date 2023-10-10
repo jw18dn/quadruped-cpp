@@ -7,7 +7,7 @@ class Gait{
     public:
         // Constructor
         Gait();
-        ~Gait();
+        // ~Gait();
 
         // Setters
         void SetGaitTime(float);
