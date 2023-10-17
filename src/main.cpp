@@ -2,9 +2,12 @@
 #include "optimization.h"
 
 int main(){
-    Gait temp;
-    temp.SetGaitTime(1);
-    temp.Print();
+
+
+    
+    // Gait temp;
+    // temp.SetGaitTime(1);
+    // temp.Print();
 
     // Optimization temp;
     // VectorXf q_n_body = VectorXf::Random(3);
