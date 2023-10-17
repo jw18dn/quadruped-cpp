@@ -22,6 +22,7 @@ EIGEN_HEADER_FILES = glob(
     exclude = EIGEN_EXCLUDE_FILES,
 )
 
+# if things are not working, try adding the "." seen in "includes"
 cc_library(
     name = "eigen",
     hdrs = EIGEN_HEADER_FILES,

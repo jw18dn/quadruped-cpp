@@ -10,8 +10,8 @@ cc_binary(
         "gait.h",
         "optimization.cpp",
         "optimization.h",
-        "main.cpp",
-    ],
+        "main.cpp"],
+    # srcs = glob(["*.cpp"], ["*.h"], exclude = ["main.cpp"]),
     deps = ["@eigen//:eigen"],
     visibility = ["//visibility:public"],
 )
