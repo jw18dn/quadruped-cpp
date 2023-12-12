@@ -6,41 +6,25 @@
 
 #IncludeRegexTransform: 
 
-../include/components.h
-Eigen/Dense
--
-
-../include/gait.h
+/home/jason/Repos/quadruped_cpp/main.cpp
 iostream
 -
-Eigen/Dense
--
+src/gait_sequence.cpp
+/home/jason/Repos/quadruped_cpp/src/gait_sequence.cpp
 
-../include/optimization.h
+/home/jason/Repos/quadruped_cpp/src/gait_params.cpp
+
+/home/jason/Repos/quadruped_cpp/src/gait_sequence.cpp
 iostream
 -
+string
+-
+memory
+-
 Eigen/Dense
 -
-
-/home/jason/Repos/quadruped_make/main.cpp
-gait.h
-/home/jason/Repos/quadruped_make/gait.h
-optimization.h
-/home/jason/Repos/quadruped_make/optimization.h
-
-/home/jason/Repos/quadruped_make/src/components.cpp
-iostream
--
-components.h
-/home/jason/Repos/quadruped_make/src/components.h
-
-/home/jason/Repos/quadruped_make/src/gait.cpp
-gait.h
-/home/jason/Repos/quadruped_make/src/gait.h
-
-/home/jason/Repos/quadruped_make/src/optimization.cpp
-optimization.h
-/home/jason/Repos/quadruped_make/src/optimization.h
+gait_params.cpp
+/home/jason/Repos/quadruped_cpp/src/gait_params.cpp
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

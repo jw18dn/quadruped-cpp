@@ -1,8 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.cpp.o"
-  "CMakeFiles/main.dir/src/components.cpp.o"
-  "CMakeFiles/main.dir/src/gait.cpp.o"
-  "CMakeFiles/main.dir/src/optimization.cpp.o"
   "main"
   "main.pdb"
 )

@@ -4,10 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jason/Repos/quadruped_make/main.cpp" "/home/jason/Repos/quadruped_make/build/CMakeFiles/main.dir/main.cpp.o"
-  "/home/jason/Repos/quadruped_make/src/components.cpp" "/home/jason/Repos/quadruped_make/build/CMakeFiles/main.dir/src/components.cpp.o"
-  "/home/jason/Repos/quadruped_make/src/gait.cpp" "/home/jason/Repos/quadruped_make/build/CMakeFiles/main.dir/src/gait.cpp.o"
-  "/home/jason/Repos/quadruped_make/src/optimization.cpp" "/home/jason/Repos/quadruped_make/build/CMakeFiles/main.dir/src/optimization.cpp.o"
+  "/home/jason/Repos/quadruped_cpp/main.cpp" "/home/jason/Repos/quadruped_cpp/build/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

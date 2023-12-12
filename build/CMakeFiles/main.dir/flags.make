@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jason/Repos/quadruped_make/include -isystem /usr/include/eigen3 
+CXX_INCLUDES = -I/home/jason/Repos/quadruped_cpp/include -isystem /usr/include/eigen3 
 

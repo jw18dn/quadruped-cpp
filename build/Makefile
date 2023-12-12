@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jason/Repos/quadruped_make
+CMAKE_SOURCE_DIR = /home/jason/Repos/quadruped_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jason/Repos/quadruped_make/build
+CMAKE_BINARY_DIR = /home/jason/Repos/quadruped_cpp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Repos/quadruped_make/build/CMakeFiles /home/jason/Repos/quadruped_make/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Repos/quadruped_cpp/build/CMakeFiles /home/jason/Repos/quadruped_cpp/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Repos/quadruped_make/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Repos/quadruped_cpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,87 +150,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/components.o: src/components.cpp.o
-
-.PHONY : src/components.o
-
-# target to build an object file
-src/components.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/components.cpp.o
-.PHONY : src/components.cpp.o
-
-src/components.i: src/components.cpp.i
-
-.PHONY : src/components.i
-
-# target to preprocess a source file
-src/components.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/components.cpp.i
-.PHONY : src/components.cpp.i
-
-src/components.s: src/components.cpp.s
-
-.PHONY : src/components.s
-
-# target to generate assembly for a file
-src/components.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/components.cpp.s
-.PHONY : src/components.cpp.s
-
-src/gait.o: src/gait.cpp.o
-
-.PHONY : src/gait.o
-
-# target to build an object file
-src/gait.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gait.cpp.o
-.PHONY : src/gait.cpp.o
-
-src/gait.i: src/gait.cpp.i
-
-.PHONY : src/gait.i
-
-# target to preprocess a source file
-src/gait.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gait.cpp.i
-.PHONY : src/gait.cpp.i
-
-src/gait.s: src/gait.cpp.s
-
-.PHONY : src/gait.s
-
-# target to generate assembly for a file
-src/gait.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gait.cpp.s
-.PHONY : src/gait.cpp.s
-
-src/optimization.o: src/optimization.cpp.o
-
-.PHONY : src/optimization.o
-
-# target to build an object file
-src/optimization.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/optimization.cpp.o
-.PHONY : src/optimization.cpp.o
-
-src/optimization.i: src/optimization.cpp.i
-
-.PHONY : src/optimization.i
-
-# target to preprocess a source file
-src/optimization.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/optimization.cpp.i
-.PHONY : src/optimization.cpp.i
-
-src/optimization.s: src/optimization.cpp.s
-
-.PHONY : src/optimization.s
-
-# target to generate assembly for a file
-src/optimization.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/optimization.cpp.s
-.PHONY : src/optimization.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -243,15 +162,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/components.o"
-	@echo "... src/components.i"
-	@echo "... src/components.s"
-	@echo "... src/gait.o"
-	@echo "... src/gait.i"
-	@echo "... src/gait.s"
-	@echo "... src/optimization.o"
-	@echo "... src/optimization.i"
-	@echo "... src/optimization.s"
 .PHONY : help
 
 
