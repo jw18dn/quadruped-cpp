@@ -1,7 +1,11 @@
 #include <cmath>
 #include "robot_params.cpp"
 
-class StateSpace
+// IN: simulated states, footstep plan
+// OUT: A, B, f for individual nodes
+
+
+class LinearDynamics
 {
 private:
     // Robot Parameters
@@ -15,20 +19,20 @@ private:
     Eigen::Vector<float, 12> G;           // Gravity Vector
 
     // State Space Matricies
-    Eigen::Matrix<float, 12, 12> A;        // A Matrix
-    Eigen::MatrixXf B;                     // B Matrix
+    static Eigen::Matrix<float, 12, 12> A;        // A Matrix
+    static Eigen::MatrixXf B;                     // B Matrix
 
     // Temporary Variables for Testing
     int numb_contacts = 2;
     int phi = 1;
 
 public:
-    StateSpace(/* args */);
-    ~StateSpace();
-    void Linearize();
+    LinearDynamics(/* args */);
+    ~LinearDynamics();
+    void StateSpace();
 };
 
-StateSpace::StateSpace(/* args */)
+LinearDynamics::LinearDynamics(/* args */)
 {
     R = Eigen::MatrixXf::Zero(3,3);
     I = robot_properties.GetInertia();
@@ -39,11 +43,11 @@ StateSpace::StateSpace(/* args */)
     B = Eigen::MatrixXf::Zero(12,numb_contacts*3);
 }
 
-StateSpace::~StateSpace()
+LinearDynamics::~LinearDynamics()
 {
 }
 
-void StateSpace::Linearize(){
+void LinearDynamics::StateSpace(){
     // Formulate the rotation matrix
     R << cos(phi), sin(phi),  0.0,
         -sin(phi), cos(phi),  0.0,
@@ -59,7 +63,5 @@ void StateSpace::Linearize(){
 
     // Formulate the B Matrix
     // r = list of vectors from contact location to COM
-
-
-
 }
+

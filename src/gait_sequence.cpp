@@ -4,6 +4,9 @@
 #include <Eigen/Dense>
 #include "gait_params.cpp"
 
+// IN: 
+// OUT: 
+
 class GaitSequence
 {
 private:
@@ -45,6 +48,7 @@ void GaitSequence::TrottingGait()
     // Import the gait parameters as a constant
     float gait_time = params.Curr_Gait_Time;
 
+    // Make this a list of matricies 
     for(int node = 0; node <= params.Nodes; node++){
         if(gait_time <= params.Stance_Time/2.0){                                // Double Stance
             sequence->block<1,4>(node,4*node) << 1.0, 1.0, 1.0, 1.0;
