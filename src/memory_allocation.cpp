@@ -1,28 +1,46 @@
 #include <iostream>
-#include <Eigen/Dense>
 #include <vector>
-#include <memory>
+#include <Eigen/Dense>  // Include Eigen header
+#include "gait_params.cpp"
 
-// ideally use this concept to preallocate the matrix space then modify them as we loop through
 
-// Define the type of matrix (you can change the type and size as needed)
-using MatrixType = Eigen::MatrixXd;
+// This runs once at the begining of the program to allocation space
 
 int main() {
-    // Define the list of smart pointers to matrices
-    std::vector<std::unique_ptr<MatrixType>> matrixSmartPtrList;
+    // Optimization Matricies
+    Eigen::MatrixXd Aeq, Aiq;
+    Eigen::VectorXd beq, biq;
 
-    // Create matrices and add their smart pointers to the list
-    matrixSmartPtrList.push_back(std::make_unique<MatrixType>(MatrixType::Random(3, 3)));
-    matrixSmartPtrList.push_back(std::make_unique<MatrixType>(MatrixType::Ones(4, 4)));
-    matrixSmartPtrList.push_back(std::make_unique<MatrixType>(MatrixType::Identity(2, 2)));
+    // Vector to store matrices
+    std::vector<Eigen::Matrix<float, 12, 12>> A;
+    std::vector<Eigen::Matrix<float, 12, 12>> B;
+    std::vector<Eigen::Matrix<int, 4, 4>> contact_seq;   // Bianary contact sequence matrix
+    std::vector<Eigen::Matrix<float, 3, 12>> qt_traj;       // Foot contact locations
 
-    // Display the matrices using smart pointers in the list
-    for (const auto& matrixSmartPtr : matrixSmartPtrList) {
-        std::cout << "Matrix:\n" << *matrixSmartPtr << "\n\n";
+    // Vector to store vectors
+    std::vector<Eigen::Vector<float, GaitParams::Nodes*12>> u_traj;       
+    std::vector<Eigen::Vector<float, GaitParams::Nodes*12>> q_traj;    
+
+    // Initialize Matrix List with all zeros
+    for (int i = 0; i < GaitParams::Nodes; ++i) {
+        Eigen::MatrixXd matrix = Eigen::MatrixXd::Zero(12, 12);  
+        A.push_back(matrix);
     }
 
-    // No need to manually free memory; smart pointers handle it automatically
+    // Loop to modify matrices - move to other classes
+    for (int i = 0; i < GaitParams::Nodes; ++i) {
+        // Access and modify elements of the i-th matrix
+        for (int row = 0; row < A[i].rows(); ++row) {
+            for (int col = 0; col < matrixList[i].cols(); ++col) {
+                // Modify matrix element, for example, set it to the row+col value
+                matrixList[i](row, col) = row + col;
+            }
+        }
+    }
+
+    // Print the modified matrices
+    for (int i = 0; i < GaitParams::Nodes; ++i) {
+        std::cout << "Matrix " << i + 1 << ":\n" << matrixList[i] << "\n\n";
+    }
 
     return 0;
-}

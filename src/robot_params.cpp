@@ -1,5 +1,6 @@
 #include <Eigen/Dense>
 
+// This version does not pull info from the xml files, that will be included in the next itteration
 // This is where all the predefined parameters are set
 class RobotParams
 {

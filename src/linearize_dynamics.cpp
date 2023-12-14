@@ -65,3 +65,7 @@ void LinearDynamics::StateSpace(){
     // r = list of vectors from contact location to COM
 }
 
+void LinearDynamics::StepLengthVector(){
+    r = v_des*ts + (v_des - v_act)*ts;
+
+}
